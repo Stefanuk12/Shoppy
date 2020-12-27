@@ -23,13 +23,15 @@ export class Shoppy {
                 'Authorization': `${Shoppy.apiKey}`,
                 'User-Agent': `shoppy-ts`
             }
-        })
+        });
     };
 
+    // Get the API Key
     getApiKey(){
         return Shoppy.apiKey;
     };
 
+    // Setting the API Key
     setApiKey(apiKey: string){
         Shoppy.apiKey = apiKey;
     };

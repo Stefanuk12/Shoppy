@@ -3,6 +3,7 @@ import { Shoppy } from '../Shoppy';
 
 // Order Class
 export class Order extends Shoppy {
+    // Get all orders
     async all(){
         try {
             // Get Response
@@ -16,6 +17,7 @@ export class Order extends Shoppy {
         };
     };
 
+    // Get a specific order
     async get(id: string){
         try {
             // Get Response

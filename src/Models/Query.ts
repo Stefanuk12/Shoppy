@@ -3,6 +3,7 @@ import { Shoppy } from '../Shoppy';
 
 // Query Class
 export class Query extends Shoppy {
+    // Get all queries
     async all(page: number = -1){
         try {
             // Get Response
@@ -25,6 +26,7 @@ export class Query extends Shoppy {
         }; 
     };
 
+    // Get a specific query
     async get(id: string){
         try {
             // Get Response
@@ -38,6 +40,7 @@ export class Query extends Shoppy {
         }; 
     };
 
+    // Update a query
     async update(id: string, status: string = "close"){
         try {
             // Get Response
@@ -53,6 +56,7 @@ export class Query extends Shoppy {
         };
     };
 
+    // Reply to a query
     async reply(id: string, message: string){
         try {
             // Get Response

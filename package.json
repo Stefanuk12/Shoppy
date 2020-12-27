@@ -12,7 +12,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "tsc": "tsc -p ."
+    "build": "tsc -p tsconfig.json"
   },
   "repository": {
     "type": "git",

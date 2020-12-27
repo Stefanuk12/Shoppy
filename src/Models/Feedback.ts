@@ -3,13 +3,14 @@ import { Shoppy } from '../Shoppy';
 
 // Feedback Class
 export class Feedback extends Shoppy {
-    async all(page: number = -1){
+    // Get all feedback
+    async all(page?: number){
         try {
             // Get Response
             var response;
 
             // Page
-            if (page > 0){
+            if (page){
                 response = await Shoppy.HttpClient.post("feedbacks", {
                     form: {page: page}
                 });
@@ -25,6 +26,7 @@ export class Feedback extends Shoppy {
         }; 
     };
 
+    // Get specific feedback
     async get(id: string){
         try {
             // Get Response
