@@ -1,6 +1,6 @@
 {
   "name": "shoppy-ts",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "An API for shoppy.gg, written in Typescript",
   "main": "lib/index.js",
   "types": "index.d.ts",

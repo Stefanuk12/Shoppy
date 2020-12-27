@@ -27,7 +27,7 @@ export class Query extends Shoppy {
     };
 
     // Get a specific query
-    async get(id: string){
+    async retrieve(id: string){
         try {
             // Get Response
             const response = await Shoppy.HttpClient.post(`queries/${id}`);

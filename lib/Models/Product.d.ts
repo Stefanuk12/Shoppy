@@ -2,7 +2,7 @@ import { IProduct } from '../Interfaces/Product';
 import { Shoppy } from '..';
 export declare class Product extends Shoppy {
     all(page?: number): Promise<any>;
-    get(id: string): Promise<any>;
+    retrieve(id: string): Promise<any>;
     create(data: Object): Promise<any>;
     update(id: string, data: IProduct): Promise<any>;
     delete(id: string): Promise<any>;

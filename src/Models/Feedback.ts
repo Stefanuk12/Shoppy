@@ -27,7 +27,7 @@ export class Feedback extends Shoppy {
     };
 
     // Get specific feedback
-    async get(id: string){
+    async retrieve(id: string){
         try {
             // Get Response
             const response = await Shoppy.HttpClient.post(`feedback/${id}`);

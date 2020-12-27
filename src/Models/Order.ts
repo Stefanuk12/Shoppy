@@ -18,7 +18,7 @@ export class Order extends Shoppy {
     };
 
     // Get a specific order
-    async get(id: string){
+    async retrieve(id: string){
         try {
             // Get Response
             const response = await Shoppy.HttpClient.post(`orders/${id}`);
