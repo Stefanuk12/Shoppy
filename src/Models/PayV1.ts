@@ -1,6 +1,6 @@
 // Dependencies
 import { IPayV1Create } from "../Interfaces/PayV1";
-import { Shoppy } from "../Shoppy";
+import { Shoppy } from "..";
 
 // PayV1 class
 export class PayV1 extends Shoppy {

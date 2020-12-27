@@ -1,5 +1,5 @@
 // Dependencies
-import { Shoppy } from '../Shoppy';
+import { Shoppy } from '..';
 
 // Order Class
 export class Order extends Shoppy {

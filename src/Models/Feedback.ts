@@ -1,5 +1,5 @@
 // Dependencies
-import { Shoppy } from '../Shoppy';
+import { Shoppy } from '..';
 
 // Feedback Class
 export class Feedback extends Shoppy {
