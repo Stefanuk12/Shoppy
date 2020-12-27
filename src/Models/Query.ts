@@ -2,7 +2,14 @@
 import { Shoppy } from '..';
 
 // Query Class
-export class Query extends Shoppy {
+export class Query {
+    // Construtor
+    constructor(){
+        if (Shoppy.apiKey == undefined){
+            throw(new Error("Please set the API key first by doing: const shoppy = new Shoppy(\"keyhere\");"))
+        }
+    }
+    
     // Get all queries
     async all(page: number = -1){
         try {

@@ -1,1 +1,1 @@
-{"version":3,"file":"PayV2.d.ts","sourceRoot":"","sources":["../../src/Models/PayV2.ts"],"names":[],"mappings":"AACA,OAAO,EAAE,gBAAgB,EAAE,kBAAkB,EAAE,MAAM,qBAAqB,CAAC;AAC3E,OAAO,EAAE,MAAM,EAAE,MAAM,IAAI,CAAC;AAG5B,qBAAa,KAAM,SAAQ,MAAM;IAEvB,MAAM,CAAC,IAAI,EAAE,gBAAgB,EAAE,MAAM,EAAE,kBAAkB;CAelE"}
+{"version":3,"file":"PayV2.d.ts","sourceRoot":"","sources":["../../src/Models/PayV2.ts"],"names":[],"mappings":"AACA,OAAO,EAAE,gBAAgB,EAAE,kBAAkB,EAAE,MAAM,qBAAqB,CAAC;AAI3E,qBAAa,KAAK;;IASR,MAAM,CAAC,IAAI,EAAE,gBAAgB,EAAE,MAAM,EAAE,kBAAkB;CAelE"}

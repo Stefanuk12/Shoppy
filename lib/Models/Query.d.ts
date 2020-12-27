@@ -1,5 +1,5 @@
-import { Shoppy } from '..';
-export declare class Query extends Shoppy {
+export declare class Query {
+    constructor();
     all(page?: number): Promise<any>;
     retrieve(id: string): Promise<any>;
     update(id: string, status?: string): Promise<any>;

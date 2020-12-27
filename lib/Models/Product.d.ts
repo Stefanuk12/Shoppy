@@ -1,6 +1,6 @@
 import { IProduct } from '../Interfaces/Product';
-import { Shoppy } from '..';
-export declare class Product extends Shoppy {
+export declare class Product {
+    constructor();
     all(page?: number): Promise<any>;
     retrieve(id: string): Promise<any>;
     create(data: Object): Promise<any>;

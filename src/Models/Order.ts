@@ -2,7 +2,14 @@
 import { Shoppy } from '..';
 
 // Order Class
-export class Order extends Shoppy {
+export class Order {
+    // Construtor
+    constructor(){
+        if (Shoppy.apiKey == undefined){
+            throw(new Error("Please set the API key first by doing: const shoppy = new Shoppy(\"keyhere\");"))
+        }
+    }
+    
     // Get all orders
     async all(){
         try {

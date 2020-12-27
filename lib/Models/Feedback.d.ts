@@ -1,5 +1,5 @@
-import { Shoppy } from '..';
-export declare class Feedback extends Shoppy {
+export declare class Feedback {
+    constructor();
     all(page?: number): Promise<any>;
     retrieve(id: string): Promise<any>;
 }

@@ -1,6 +1,5 @@
 import { IPayV1Create } from "../Interfaces/PayV1";
-import { Shoppy } from "..";
-export declare class PayV1 extends Shoppy {
+export declare class PayV1 {
     create(data: IPayV1Create): Promise<any>;
     delete(id: string): Promise<any>;
 }

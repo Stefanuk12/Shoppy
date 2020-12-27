@@ -3,7 +3,7 @@ import { IPayV1Create } from "../Interfaces/PayV1";
 import { Shoppy } from "..";
 
 // PayV1 class
-export class PayV1 extends Shoppy {
+export class PayV1 {
     // Create a payment
     async create(data: IPayV1Create){
         try {

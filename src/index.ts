@@ -1,6 +1,16 @@
+// Dependencies
 import got, { Got } from "got";
 import * as crypto from 'crypto';
 
+// Exporting models
+export {Feedback} from './Models/Feedback';
+export {Order} from './Models/Order';
+export {PayV1} from './Models/PayV1';
+export {PayV2} from './Models/PayV2';
+export {Product} from './Models/Product';
+export {Query} from './Models/Query';
+
+// Shoppy Class
 export class Shoppy {
     // Vars
     static apiKey: string;

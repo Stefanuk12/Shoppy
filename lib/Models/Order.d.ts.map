@@ -1,1 +1,1 @@
-{"version":3,"file":"Order.d.ts","sourceRoot":"","sources":["../../src/Models/Order.ts"],"names":[],"mappings":"AACA,OAAO,EAAE,MAAM,EAAE,MAAM,IAAI,CAAC;AAG5B,qBAAa,KAAM,SAAQ,MAAM;IAEvB,GAAG;IAcH,QAAQ,CAAC,EAAE,EAAE,MAAM;CAY5B"}
+{"version":3,"file":"Order.d.ts","sourceRoot":"","sources":["../../src/Models/Order.ts"],"names":[],"mappings":"AAIA,qBAAa,KAAK;;IASR,GAAG;IAcH,QAAQ,CAAC,EAAE,EAAE,MAAM;CAY5B"}

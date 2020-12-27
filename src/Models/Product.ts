@@ -3,7 +3,14 @@ import { IProduct } from '../Interfaces/Product';
 import { Shoppy } from '..';
 
 // Product Class
-export class Product extends Shoppy {
+export class Product {
+    // Construtor
+    constructor(){
+        if (Shoppy.apiKey == undefined){
+            throw(new Error("Please set the API key first by doing: const shoppy = new Shoppy(\"keyhere\");"))
+        }
+    }
+    
     // Get all products
     async all(page: number = -1){
         try {

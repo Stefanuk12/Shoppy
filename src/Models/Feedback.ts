@@ -2,7 +2,14 @@
 import { Shoppy } from '..';
 
 // Feedback Class
-export class Feedback extends Shoppy {
+export class Feedback {
+    // Construtor
+    constructor(){
+        if (Shoppy.apiKey == undefined){
+            throw(new Error("Please set the API key first by doing: const shoppy = new Shoppy(\"keyhere\");"))
+        }
+    }
+
     // Get all feedback
     async all(page?: number){
         try {
