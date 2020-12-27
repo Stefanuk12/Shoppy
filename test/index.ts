@@ -1,5 +1,5 @@
 // Requirements
-import {Shoppy, Order} from '../src'
+import {Shoppy, Product} from '../src'
 
 // Test
-const _Order = new Order();
+const _Product = new Product();
