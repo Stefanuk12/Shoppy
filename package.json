@@ -1,5 +1,5 @@
 {
-  "name": "shoppy",
+  "name": "shoppy-ts",
   "version": "1.0.0",
   "description": "An API for shoppy.gg, written in Typescript",
   "main": "lib/index.js",
