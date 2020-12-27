@@ -1,14 +1,6 @@
 // Dependencies
+import { IPayV1Create } from "../Interfaces/PayV1";
 import { Shoppy } from "../Shoppy";
-
-// PayV1Create Interface
-interface IPayV1Create {
-    title: string;
-    price: number;
-    webhook_urls: Array<string>;
-    gateways: Array<string>;
-    confirmations: number;
-};
 
 // PayV1 class
 export class PayV1 extends Shoppy {

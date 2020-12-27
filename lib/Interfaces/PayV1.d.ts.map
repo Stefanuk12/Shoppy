@@ -1,0 +1,1 @@
+{"version":3,"file":"PayV1.d.ts","sourceRoot":"","sources":["../../src/Interfaces/PayV1.ts"],"names":[],"mappings":"AAAA,MAAM,WAAW,YAAY;IACzB,KAAK,EAAE,MAAM,CAAC;IACd,KAAK,EAAE,MAAM,CAAC;IACd,YAAY,EAAE,KAAK,CAAC,MAAM,CAAC,CAAC;IAC5B,QAAQ,EAAE,KAAK,CAAC,MAAM,CAAC,CAAC;IACxB,aAAa,EAAE,MAAM,CAAC;CACzB"}
