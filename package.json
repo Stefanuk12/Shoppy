@@ -1,0 +1,30 @@
+{
+  "name": "shoppy",
+  "version": "1.0.0",
+  "description": "An API for shoppy.gg, written in Typescript",
+  "main": "lib/index.js",
+  "types": "index.d.ts",
+  "directories": {
+    "lib": "lib"
+  },
+  "dependencies": {
+    "got": "^11.8.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "tsc": "tsc -p ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Stefanuk12/Shoppy.git"
+  },
+  "keywords": [
+    "shoppy"
+  ],
+  "author": "Stefanuk12",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Stefanuk12/Shoppy/issues"
+  },
+  "homepage": "https://github.com/Stefanuk12/Shoppy#readme"
+}
