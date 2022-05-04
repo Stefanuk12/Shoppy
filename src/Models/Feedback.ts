@@ -1,49 +1,55 @@
 // Dependencies
-import { Shoppy } from '..';
+import { Shoppy } from '..'
+import { IFeedback } from '../Interfaces/IFeedback'
 
 // Feedback Class
+export interface Feedback extends IFeedback {}
 export class Feedback {
     // Construtor
-    constructor(){
+    constructor(Data: IFeedback){
+        // Make sure API key has been given
         if (Shoppy.apiKey == undefined){
-            throw(new Error("Please set the API key first by doing: const shoppy = new Shoppy(\"keyhere\");"))
+            throw(new Error("Please set the API key first by doing: const shoppy = new Shoppy(\"keyhere\")"))
         }
+
+        //
+        Object.assign(this, Data)
     }
 
     // Get all feedback
-    async all(page?: number){
+    static async all(page?: number){
         try {
             // Get Response
-            var response;
+            let response
 
             // Page
             if (page){
                 response = await Shoppy.HttpClient.post("feedbacks", {
                     form: {page: page}
-                });
+                })
             } else {
-                response = await Shoppy.HttpClient.post("feedbacks");
-            };
+                response = await Shoppy.HttpClient.post("feedbacks")
+            }
             
             // Return Parsed Response
-            return JSON.parse(response.body);
+            return <IFeedback[]>JSON.parse(response.body)
         } catch(error){
             // Return Error
-            return error;
-        }; 
-    };
+            return error
+        }
+    }
 
     // Get specific feedback
-    async retrieve(id: string){
+    static async retrieve(id: string){
         try {
             // Get Response
-            const response = await Shoppy.HttpClient.post(`feedback/${id}`);
+            const response = await Shoppy.HttpClient.post(`feedback/${id}`)
             
             // Return Parsed Response
-            return JSON.parse(response.body);
+            return <IFeedback>JSON.parse(response.body)
         } catch(error){
             // Return Error
-            return error;
-        }; 
-    };
+            return error
+        }
+    }
 }

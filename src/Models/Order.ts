@@ -1,40 +1,46 @@
 // Dependencies
-import { Shoppy } from '..';
+import { Shoppy } from '..'
+import { IOrder } from '../Interfaces/IOrder'
 
 // Order Class
+export interface Order extends IOrder {}
 export class Order {
     // Construtor
-    constructor(){
+    constructor(Data: IOrder){
+        // Make sure API key has been given
         if (Shoppy.apiKey == undefined){
-            throw(new Error("Please set the API key first by doing: const shoppy = new Shoppy(\"keyhere\");"))
+            throw(new Error("Please set the API key first by doing: const shoppy = new Shoppy(\"keyhere\")"))
         }
+
+        //
+        Object.assign(this, Data)
     }
     
     // Get all orders
     async all(){
         try {
             // Get Response
-            const response = await Shoppy.HttpClient.post("orders");
+            const response = await Shoppy.HttpClient.post("orders")
             
             // Return Parsed Response
-            return JSON.parse(response.body);
+            return <IOrder[]>JSON.parse(response.body)
         } catch(error){
             // Return Error
-            return error;
-        };
-    };
+            return error
+        }
+    }
 
     // Get a specific order
-    async retrieve(id: string){
+    static async retrieve(id: string){
         try {
             // Get Response
-            const response = await Shoppy.HttpClient.post(`orders/${id}`);
+            const response = await Shoppy.HttpClient.post(`orders/${id}`)
             
             // Return Parsed Response
-            return JSON.parse(response.body);
+            return <IOrder>JSON.parse(response.body)
         } catch(error){
             // Return Error
-            return error;
-        };
-    };
-};
+            return error
+        }
+    }
+}

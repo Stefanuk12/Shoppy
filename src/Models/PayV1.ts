@@ -1,36 +1,36 @@
 // Dependencies
-import { IPayV1Create } from "../Interfaces/PayV1";
-import { Shoppy } from "..";
+import { IPayV1Create } from "../Interfaces/PayV1"
+import { Shoppy } from ".."
 
 // PayV1 class
 export class PayV1 {
     // Create a payment
-    async create(data: IPayV1Create){
+    static async create(data: IPayV1Create){
         try {
             // Get Response
             const response = await Shoppy.HttpClient.post("pay", {
                 json: {product: data}
-            });
+            })
             
             // Return Parsed Response
-            return JSON.parse(response.body);
+            return JSON.parse(response.body)
         } catch(error){
             // Return Error
-            return error;
-        }; 
-    };
+            return error
+        } 
+    }
 
     // Delete a payment
-    async delete(id: string){
+    static async delete(id: string){
         try {
             // Get Response
-            const response = await Shoppy.HttpClient.delete(`pay/${id}`);
+            const response = await Shoppy.HttpClient.delete(`pay/${id}`)
             
             // Return Response
-            return response.statusCode;
+            return response.statusCode
         } catch(error){
             // Return Error
-            return error;
-        };
-    };
+            return error
+        }
+    }
 }

@@ -1,18 +1,20 @@
-import { ICustomField } from "./Product";
+// Dependencies
+import { ICustomField } from "./ICustomField"
 
+//
 export interface IPayV2CreateFields {
-    webhook_urls?: Array<string>;
-    custom_fields?: Array<string>;
-    quantity?: number;
-};
+    webhook_urls?: string[]
+    custom_fields?: string[]
+    quantity?: number
+}
 
 export interface IPayV2CreateData {
-    title: string;
-    value: number;
-    white_label?: boolean;
-    email?: string;
-    gateway?: string;
-    webhook_urls?: Array<string>;
-    quantity?: number;
-    custom_fields: Array<ICustomField>
-};
+    title: string
+    value: number
+    white_label?: boolean
+    email?: string
+    gateway?: string
+    webhook_urls?: string[]
+    quantity?: number
+    custom_fields: ICustomField[]
+}

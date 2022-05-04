@@ -1,81 +1,115 @@
 // Dependencies
-import { Shoppy } from '..';
+import { Shoppy } from '..'
+import { IQuery } from '../Interfaces/IQuery'
 
 // Query Class
+export interface Query extends IQuery {}
 export class Query {
     // Construtor
-    constructor(){
+    constructor(Data: IQuery){
+        // Make sure API key has been given
         if (Shoppy.apiKey == undefined){
-            throw(new Error("Please set the API key first by doing: const shoppy = new Shoppy(\"keyhere\");"))
+            throw(new Error("Please set the API key first by doing: const shoppy = new Shoppy(\"keyhere\")"))
         }
+
+        //
+        Object.assign(this, Data)
     }
     
     // Get all queries
-    async all(page: number = -1){
+    static async all(page: number = -1){
         try {
             // Get Response
-            var response;
+            let response
 
             // Page
             if (page > 0){
                 response = await Shoppy.HttpClient.post("queries", {
                     form: {page: page}
-                });
+                })
             } else {
-                response = await Shoppy.HttpClient.post("queries");
-            };    
+                response = await Shoppy.HttpClient.post("queries")
+            }    
             
             // Return Parsed Response
-            return JSON.parse(response.body);
+            return <IQuery[]>JSON.parse(response.body)
         } catch(error){
             // Return Error
-            return error;
-        }; 
-    };
+            return error
+        } 
+    }
 
     // Get a specific query
-    async retrieve(id: string){
+    static async retrieve(id: string){
         try {
             // Get Response
-            const response = await Shoppy.HttpClient.post(`queries/${id}`);
+            const response = await Shoppy.HttpClient.post(`queries/${id}`)
             
             // Return Parsed Response
-            return JSON.parse(response.body);
+            return <IQuery>JSON.parse(response.body)
         } catch(error){
             // Return Error
-            return error;
-        }; 
-    };
+            return error
+        } 
+    }
 
     // Update a query
-    async update(id: string, status: string = "close"){
+    static async update(id: string, status: string = "close"){
         try {
             // Get Response
             const response = await Shoppy.HttpClient.post(`queries/${id}/${status}`, {
                 form: {action: status}
-            });
+            })
             
             // Return Parsed Response
-            return response.statusCode;
+            return response.statusCode
         } catch(error){
             // Return Error
-            return error;
-        };
-    };
+            return error
+        }
+    }
+    async update(status: string = "close"){
+        try {
+            // Get Response
+            const response = await Shoppy.HttpClient.post(`queries/${this.id}/${status}`, {
+                form: {action: status}
+            })
+            
+            // Return Parsed Response
+            return response.statusCode
+        } catch(error){
+            // Return Error
+            return error
+        }
+    }
 
     // Reply to a query
-    async reply(id: string, message: string){
+    static async reply(id: string, message: string){
         try {
             // Get Response
             const response = await Shoppy.HttpClient.post(`queries/${id}/reply`, {
                 form: {message: message}
-            });
+            })
             
             // Return Parsed Response
-            return response.statusCode;
+            return response.statusCode
         } catch(error){
             // Return Error
-            return error;
-        };
+            return error
+        }
     }
-};
+    async reply(message: string){
+        try {
+            // Get Response
+            const response = await Shoppy.HttpClient.post(`queries/${this.id}/reply`, {
+                form: {message: message}
+            })
+            
+            // Return Parsed Response
+            return response.statusCode
+        } catch(error){
+            // Return Error
+            return error
+        }
+    }
+}

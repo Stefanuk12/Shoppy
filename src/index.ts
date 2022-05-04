@@ -1,77 +1,76 @@
 // Dependencies
-import got, { Got } from "got";
-import * as crypto from 'crypto';
+import got, { Got } from "got"
+import * as crypto from 'crypto'
+import { NextFunction, Request, response, Response } from "express"
 
 // Exporting models
-export {Feedback} from './Models/Feedback';
-export {Order} from './Models/Order';
-export {PayV1} from './Models/PayV1';
-export {PayV2} from './Models/PayV2';
-export {Product} from './Models/Product';
-export {Query} from './Models/Query';
+export { Feedback } from './Models/Feedback'
+export { Order } from './Models/Order'
+export { PayV1 } from './Models/PayV1'
+export { PayV2 } from './Models/PayV2'
+export { Product } from './Models/Product'
+export { Query } from './Models/Query'
 
 // Shoppy Class
 export class Shoppy {
     // Vars
-    static apiKey: string;
-    static apiBase: string = "https://shoppy.gg/api";
-    static HttpClient: Got;
-    static HttpClient2: Got;
+    static apiKey: string
+    static webhookSecret: string
+    static apiBase: string = "https://shoppy.gg/api"
+    static HttpClient: Got
+    static HttpClient2: Got
 
     // Constructor
-    constructor(apiKey: string){
-        Shoppy.apiKey = apiKey;
+    constructor(apiKey: string, webhookSecret: string){
+        // Set
+        Shoppy.apiKey = apiKey
+        Shoppy.webhookSecret = webhookSecret
+
+        // HTTP Clients
         Shoppy.HttpClient = got.extend({
             prefixUrl: 'https://shoppy.gg/api/v1',
             headers: {
                 'Authorization': `${Shoppy.apiKey}`,
                 'User-Agent': `shoppy-ts`
             }
-        });
+        })
         Shoppy.HttpClient2 = got.extend({
             prefixUrl: 'https://shoppy.gg/api/v2',
             headers: {
                 'Authorization': `${Shoppy.apiKey}`,
                 'User-Agent': `shoppy-ts`
             }
-        });
-    };
+        })
+    }
 
-
-    // Verify if a webhook is valid
-    private hashEquals(answer: string, guess: string){
-        // Vars
-        const rb = crypto.pseudoRandomBytes(32);
-        const ahmac = crypto.createHmac('sha256', rb).update(answer).digest('hex');
-        const ghmac = crypto.createHmac('sha256', rb).update(guess).digest('hex');
-        const len = ahmac.length;
-
-        // Loop
-        let result = 0;
-        for (let i = 0; i < len; ++i) {
-            result |= (ahmac.charCodeAt(i) ^ ghmac.charCodeAt(i));
-        };
-
-        // Return
-        return result === 0;
-    };
-    verifyWebhook(xShoppySignature: string, webhookSecret: string, requestBody: Object){
+    // Verify is a webhook is legit
+    verifyWebhook(GivenSignature: string, Payload: Object){
         // Generate Hmac
-        const generatedHmac = crypto.createHmac('sha512', webhookSecret)
-        .update(JSON.stringify(requestBody))
-        .digest('base64');
+        const PayloadString = JSON.stringify(Payload)
+        const Signature = crypto.createHmac('sha512', Shoppy.webhookSecret).update(PayloadString).digest('hex')
+
+        // Convert to buffers
+        const GivenSignatureBuffer = Buffer.from(GivenSignature)
+        const SignatureBuffer = Buffer.from(Signature)
 
         // Return
-        return this.hashEquals(generatedHmac, xShoppySignature);
-    };
+        return crypto.timingSafeEqual(GivenSignatureBuffer, SignatureBuffer)
+    }
 
-    // Get the API Key
-    getApiKey(){
-        return Shoppy.apiKey;
-    };
-
-    // Setting the API Key
-    setApiKey(apiKey: string){
-        Shoppy.apiKey = apiKey;
-    };
-};
+    // An express middleware to check if a webhook is legit
+    verifyWebhookExpress(Request: Request, Response: Response, Next: NextFunction){
+        // Get the signature
+        let GivenSignature = Request.headers["x-shoppy-signature"]
+        if (!GivenSignature){
+            return response.sendStatus(401)
+        }
+    
+        // Make sure it matches
+        if (!this.verifyWebhook(GivenSignature.toString(), Request.body)){
+            return response.sendStatus(401)
+        }
+    
+        //
+        Next()
+    }
+}
