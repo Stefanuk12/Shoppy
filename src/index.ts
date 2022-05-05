@@ -44,7 +44,7 @@ export class Shoppy {
     }
 
     // Verify is a webhook is legit
-    verifyWebhook(GivenSignature: string, Payload: Object){
+    static verifyWebhook(GivenSignature: string, Payload: Object){
         // Generate Hmac
         const PayloadString = JSON.stringify(Payload)
         const Signature = crypto.createHmac('sha512', Shoppy.webhookSecret).update(PayloadString).digest('hex')
@@ -58,7 +58,7 @@ export class Shoppy {
     }
 
     // An express middleware to check if a webhook is legit
-    verifyWebhookExpress(Request: Request, Response: Response, Next: NextFunction){
+    static verifyWebhookExpress(Request: Request, Response: Response, Next: NextFunction){
         // Get the signature
         let GivenSignature = Request.headers["x-shoppy-signature"]
         if (!GivenSignature){
@@ -66,7 +66,7 @@ export class Shoppy {
         }
     
         // Make sure it matches
-        if (!this.verifyWebhook(GivenSignature.toString(), Request.body)){
+        if (!Shoppy.verifyWebhook(GivenSignature.toString(), Request.body)){
             return response.sendStatus(401)
         }
     
