@@ -1,5 +1,5 @@
 // Dependencies
-import { Shoppy } from '../index.js'
+import { Shoppy } from '..'
 import { IQuery } from '../Interfaces/IQuery.js'
 
 // Query Class
@@ -69,18 +69,7 @@ export class Query {
         }
     }
     async update(status: string = "close"){
-        try {
-            // Get Response
-            const response = await Shoppy.HttpClient.post(`queries/${this.id}/${status}`, {
-                form: {action: status}
-            })
-            
-            // Return Parsed Response
-            return response.statusCode
-        } catch(error){
-            // Return Error
-            return error
-        }
+        return await Query.update(this.id, status)
     }
 
     // Reply to a query
@@ -88,6 +77,9 @@ export class Query {
         try {
             // Get Response
             const response = await Shoppy.HttpClient.post(`queries/${id}/reply`, {
+                headers: {
+                    "content-type": "application/x-www-form-urlencoded"
+                },
                 form: {message: message}
             })
             
@@ -99,17 +91,6 @@ export class Query {
         }
     }
     async reply(message: string){
-        try {
-            // Get Response
-            const response = await Shoppy.HttpClient.post(`queries/${this.id}/reply`, {
-                form: {message: message}
-            })
-            
-            // Return Parsed Response
-            return response.statusCode
-        } catch(error){
-            // Return Error
-            return error
-        }
+        return await Query.reply(this.id, message)
     }
 }

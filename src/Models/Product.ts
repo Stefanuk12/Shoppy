@@ -69,18 +69,7 @@ export class Product {
         } 
     }
     async create(){
-        try {
-            // Get Response
-            const response = await Shoppy.HttpClient.put("products", {
-                form: this
-            })
-            
-            // Return Parsed Response
-            return response.statusCode
-        } catch(error){
-            // Return Error
-            return error
-        } 
+        return await Product.create(this)
     }
 
     // Update a product
@@ -99,18 +88,7 @@ export class Product {
         }
     }
     async update(){
-        try {
-            // Get Response
-            const response = await Shoppy.HttpClient.post(`products/${this.id}`, {
-                form: this
-            })
-            
-            // Return Parsed Response
-            return response.statusCode
-        } catch(error){
-            // Return Error
-            return error
-        }
+        return await Product.update(this.id, this)
     }
 
     // Delete a product
@@ -127,16 +105,7 @@ export class Product {
         }
     }
     async delete(){
-        try {
-            // Get Response
-            const response = await Shoppy.HttpClient.delete(`products/${this.id}`)
-            
-            // Return Response
-            return response.statusCode
-        } catch(error){
-            // Return Error
-            return error
-        } 
+        return await Product.delete(this.id)
     }
 
     /* Not implemented because I do not know how to
