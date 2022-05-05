@@ -1,5 +1,5 @@
 // Dependencies
-import { Shoppy } from '..'
+import { Shoppy } from '../index.js'
 import { IQuery } from '../Interfaces/IQuery.js'
 
 // Query Class
