@@ -1,6 +1,6 @@
 // Dependencies
 import { IPayV1Create } from "../Interfaces/PayV1.js"
-import { Shoppy } from ".."
+import { Shoppy } from "../index.js"
 
 // PayV1 class
 export class PayV1 {

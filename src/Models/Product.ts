@@ -1,6 +1,6 @@
 // Dependencies
 import { IProduct } from '../Interfaces/IProduct.js'
-import { Shoppy } from '..'
+import { Shoppy } from '../index.js'
 
 // Product Class
 export interface Product extends IProduct {}

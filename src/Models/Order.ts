@@ -1,5 +1,5 @@
 // Dependencies
-import { Shoppy } from '..'
+import { Shoppy } from '../index.js'
 import { IOrder } from '../Interfaces/IOrder.js'
 
 // Order Class

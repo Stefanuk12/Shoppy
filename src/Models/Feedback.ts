@@ -1,5 +1,5 @@
 // Dependencies
-import { Shoppy } from '..'
+import { Shoppy } from '../index.js'
 import { IFeedback } from '../Interfaces/IFeedback.js'
 
 // Feedback Class
