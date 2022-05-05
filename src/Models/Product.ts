@@ -1,5 +1,5 @@
 // Dependencies
-import { IProduct } from '../Interfaces/IProduct'
+import { IProduct } from '../Interfaces/IProduct.js'
 import { Shoppy } from '..'
 
 // Product Class

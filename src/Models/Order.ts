@@ -1,6 +1,6 @@
 // Dependencies
 import { Shoppy } from '..'
-import { IOrder } from '../Interfaces/IOrder'
+import { IOrder } from '../Interfaces/IOrder.js'
 
 // Order Class
 export interface Order extends IOrder {}

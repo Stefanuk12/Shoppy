@@ -4,12 +4,12 @@ import * as crypto from 'crypto'
 import { NextFunction, Request, response, Response } from "express"
 
 // Exporting models
-export { Feedback } from './Models/Feedback'
-export { Order } from './Models/Order'
-export { PayV1 } from './Models/PayV1'
-export { PayV2 } from './Models/PayV2'
-export { Product } from './Models/Product'
-export { Query } from './Models/Query'
+export { Feedback } from './Models/Feedback.js'
+export { Order } from './Models/Order.js'
+export { PayV1 } from './Models/PayV1.js'
+export { PayV2 } from './Models/PayV2.js'
+export { Product } from './Models/Product.js'
+export { Query } from './Models/Query.js'
 
 // Shoppy Class
 export class Shoppy {

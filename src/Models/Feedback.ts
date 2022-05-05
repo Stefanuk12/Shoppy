@@ -1,6 +1,6 @@
 // Dependencies
 import { Shoppy } from '..'
-import { IFeedback } from '../Interfaces/IFeedback'
+import { IFeedback } from '../Interfaces/IFeedback.js'
 
 // Feedback Class
 export interface Feedback extends IFeedback {}

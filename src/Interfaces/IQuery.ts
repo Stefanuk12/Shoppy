@@ -1,5 +1,5 @@
 // Dependencies
-import { IAgent } from "./IAgent"
+import { IAgent } from "./IAgent.js"
 
 //
 export interface IQuery {

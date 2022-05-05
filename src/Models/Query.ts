@@ -1,6 +1,6 @@
 // Dependencies
 import { Shoppy } from '..'
-import { IQuery } from '../Interfaces/IQuery'
+import { IQuery } from '../Interfaces/IQuery.js'
 
 // Query Class
 export interface Query extends IQuery {}

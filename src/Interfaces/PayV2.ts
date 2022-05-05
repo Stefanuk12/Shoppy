@@ -1,5 +1,5 @@
 // Dependencies
-import { ICustomField } from "./ICustomField"
+import { ICustomField } from "./ICustomField.js"
 
 //
 export interface IPayV2CreateFields {

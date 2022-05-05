@@ -1,5 +1,5 @@
 // Dependencies
-import { IPayV2CreateData, IPayV2CreateFields } from '../Interfaces/PayV2'
+import { IPayV2CreateData, IPayV2CreateFields } from '../Interfaces/PayV2.js'
 import { Shoppy } from '..'
 
 // PayV2 Class
