@@ -23,11 +23,11 @@ export class Query {
 
         // Page
         if (page > 0) {
-            response = await Shoppy.HttpClient.post("queries", {
+            response = await Shoppy.HttpClient.get("queries", {
                 form: { page: page }
             })
         } else {
-            response = await Shoppy.HttpClient.post("queries")
+            response = await Shoppy.HttpClient.get("queries")
         }
 
         // Return Parsed Response

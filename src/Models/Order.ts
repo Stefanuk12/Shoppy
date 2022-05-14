@@ -19,7 +19,7 @@ export class Order {
     // Get all orders
     async all() {
         // Get Response
-        const response = await Shoppy.HttpClient.post("orders")
+        const response = await Shoppy.HttpClient.get("orders")
 
         // Return Parsed Response
         return <IOrder[]>JSON.parse(response.body)

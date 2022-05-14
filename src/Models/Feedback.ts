@@ -23,11 +23,11 @@ export class Feedback {
 
         // Page
         if (page) {
-            response = await Shoppy.HttpClient.post("feedbacks", {
+            response = await Shoppy.HttpClient.get("feedbacks", {
                 form: { page: page }
             })
         } else {
-            response = await Shoppy.HttpClient.post("feedbacks")
+            response = await Shoppy.HttpClient.get("feedbacks")
         }
 
         // Return Parsed Response
